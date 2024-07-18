@@ -1,5 +1,7 @@
 import express from "express";
 
+import { register } from "../controllers/authController.js";
+
 const router = express.Router();
 
 router.get("/login", (req, res) => {
@@ -7,4 +9,6 @@ router.get("/login", (req, res) => {
     message: "Hello World From Login",
   });
 });
+
+router.post("/register", register);
 export default router;
