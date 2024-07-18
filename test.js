@@ -1,14 +1,14 @@
-const dotenv = require("dotenv");
+import { config } from "dotenv";
 
-dotenv.config({ path: ".env" });
+config({ path: ".env" });
 
 const mongdb_url = process.env.MONGODB_URL;
-const mongoose = require("mongoose");
-const Task = require("./model/task");
-const User = require("./model/user");
+import { connect } from "mongoose";
+import User from "./models/user.js";
 
 const user = new User({
-  name: "test",
+  firstName: "test",
+  lastName: "test",
   email: "test",
   password: "test",
 });
@@ -22,11 +22,7 @@ const user = new User({
 //     user: "test",
 //     category: "test",
 // });
-mongoose
-  .connect(mongdb_url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+connect(mongdb_url, {})
   .then(() => {
     console.log("MongoDB connected");
     user.save();
