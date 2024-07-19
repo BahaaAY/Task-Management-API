@@ -6,7 +6,7 @@ const EmailTokenSchema = new Schema({
   token: { type: String, required: true },
   expireAt: {
     type: Date,
-    expires: 2,
+    expires: 8 * 3600, // in 8 hours
     default: Date.now,
   },
 });
