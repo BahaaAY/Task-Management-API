@@ -11,7 +11,7 @@ const mongdb_url = process.env.MONGODB_URL;
 const app = express();
 
 app.use(express.json());
-app.use("/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 app.get("/", (req, res) => {
   res.json({
     message: "Hello World",
